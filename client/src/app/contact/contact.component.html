@@ -1,0 +1,15 @@
+
+<div class="row m-0 p-1 border" style="height: 82px;">
+  <div class="col d-flex align-items-center">
+    <img [src]="src" style="height: 52px; width: 52px;" class="object-fit-cover  rounded-circle">
+    <div class="ps-3">
+      <p class="fw-bolder m-0 p-0">{{contact.user}}</p>
+      @if(contact.lastMessage.message){
+        <small class="m-0 p-0">{{contact.lastMessage.message | slice:0:24}}</small>
+      } @else {
+        <small class=""> </small>
+      }
+      <p class="m-0 p-0"><small class="text-body-secondary " style="font-size: 0.72em;">{{date}}</small></p>
+    </div>
+  </div>
+</div>

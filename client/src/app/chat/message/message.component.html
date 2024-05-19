@@ -1,0 +1,8 @@
+<div class="d-flex text-break" [ngClass]="{'justify-content-start ': message.username !== authService.user.value.username, 'justify-content-end': message.username === authService.user.value.username }">
+    <div class="card text-bg-light mb-1" [ngClass]="{'text-bg-light test-start me-5': message.username !== authService.user.value.username, 'text-bg-primary text-end ms-5': message.username === authService.user.value.username }">
+        <div class="card-body pb-0">
+          <p class="card-text m-0 p-0">{{message.message}}</p>
+          <p class="card-text text-end m-0 p-0"><small style="font-size: 0.72em;">{{date}}</small></p>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary ">
+    <div class="container ">
+      <a class="navbar-brand"><fa-icon [icon]="faMessage"></fa-icon> Web messenger</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        </ul>
+        <button class="btn me-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><fa-icon [icon]="faUserPlus"></fa-icon></button>
+          
+        <div class="btn-group">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img [src]="src" style="height: 52px; width: 52px;" class="object-fit-cover  rounded-circle">
+            </button>
+            <div class="dropdown-menu dropdown-menu-end">
+              <button class="dropdown-item" type="button" (click)="authService.logoff();">Signout</button>
+              <button class="dropdown-item" type="button" routerLink="/profile">Proflie</button>
+            </div>
+          </div>
+    </div>
+</nav>
+
+<div class="container mt-3">
+  @for( contact of this.messengerService.contacts; track $index) {
+    <app-contact role="button" [contact]="contact" [routerLink]="['/chat',contact._id]"></app-contact>
+  }
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <input type="text" class="form-control" placeholder="Username" [(ngModel)]="username">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addContact()">Add contact</button>
+      </div>
+    </div>
+  </div>
+</div>

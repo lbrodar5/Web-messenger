@@ -1,0 +1,28 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <form #authForm = "ngForm" (ngSubmit)="onSubmit(authForm)" class="border border-2 rounded p-3">
+        <div class="form-group mb-3">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username"  placeholder="Enter username" 
+          name="username"  ngModel >
+        </div>
+        <div class="form-group mb-3">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password"
+          name="password" ngModel>
+        </div>
+        <div class="text-center mb-3">
+            <button type="submit" class="btn btn-primary" style="margin-top: 6px;">{{mode}}</button>
+        </div>
+        <div class="d-flex align-items-center">
+            @if (mode == "Login") {
+                <span>New to web messenger?</span>
+            } @else {
+                <span>Already have an account?</span>
+            }
+            <button type="button" class="btn text-primary" (click)="changeMode()">{{oppositeMode}}</button>
+        </div>
+        @if (authService.error) {
+          <p class="text-break text-danger text-center">{{authService.error}}</p>
+        }
+      </form>
+</div>

@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary ">
+    <div class="container ">
+      <a class="navbar-brand"><fa-icon [icon]="faArrowLeft" class="btn" routerLink="/home"></fa-icon> <img [src]="src" style="height: 52px; width: 52px;" class="object-fit-cover  rounded-circle"> {{messengerService.contact.user}}</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        </ul>
+        <button class="btn me-3" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+        <div class="btn-group">
+            <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <h3><fa-icon [icon]="faEllipsisVertical"></fa-icon></h3>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end">
+              <button class="dropdown-item" type="button">Signout</button>
+              <button class="dropdown-item" type="button">Proflie</button>
+            </div>
+          </div>
+    </div>
+</nav>
+<div class="container overflow-y-auto d-flex flex-column-reverse" style="height: 83vh;">
+    @for( message of this.messengerService.messages; track $index) {
+        <app-message [message]="message"></app-message>
+    }
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+          <form>
+            <div class="input-group mt-2">
+                <input type="text" class="form-control" placeholder="..." aria-label="Recipient's username" aria-describedby="button-addon2" [(ngModel)]="input" [ngModelOptions]="{standalone: true}">
+                <button class="btn btn-outline-primary" type="submit" id="button-addon2" (click)="sendMessage()"><fa-icon [icon]="faPaperPlane"></fa-icon></button>
+            </div>
+          </form>
+    </div>
+</div>
+
