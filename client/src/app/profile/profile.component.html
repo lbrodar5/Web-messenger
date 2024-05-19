@@ -6,7 +6,7 @@
     </div>
 </nav>
 <div class="container text-center d-flex flex-column align-items-center">
-    <img [src]="src" style="height: 256px; width: 256px;" class="object-fit-cover rounded-circle">
+    <img [src]="src" style="height: 256px; width: 256px;" accept="image/*" class="object-fit-cover rounded-circle">
     <h3>{{authService.user.value.username}}</h3>
     <input #fileinput style="display: none" type="file" class="form-control" (change)="onFileSelected($event)">
     <button class="btn btn-primary" (click)="fileinput.click()"> Change profile picture</button>
